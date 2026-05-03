@@ -60,12 +60,14 @@ resource "null_resource" "launch_aap_linux_bootstrap" {
   }
 
   provisioner "local-exec" {
+    interpreter = ["/bin/bash", "-c"]
+
     command = <<EOT
 set -euo pipefail
 
 response_file="$(mktemp)"
 
-http_status=$(curl -k -sS -o "$response_file" -w "%%{http_code}" \
+http_status=$(curl -k -sS -o "$response_file" -w "%{http_code}" \
   -X POST \
   -H "Authorization: Bearer ${var.aap_token}" \
   -H "Content-Type: application/json" \
