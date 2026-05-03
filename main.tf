@@ -54,11 +54,20 @@ resource "null_resource" "launch_aap_linux_bootstrap" {
     azurerm_linux_virtual_machine.vm
   ]
 
+  triggers = {
+    vm_name = local.vm_name
+    vm_id   = azurerm_linux_virtual_machine.vm.id
+  }
+
   provisioner "local-exec" {
     command = <<EOT
-curl -k -s -o /tmp/aap_launch_response.json -w "AAP HTTP status: %%{http_code}\\n" \
-  -u "${var.aap_username}:${var.aap_password}" \
+set -euo pipefail
+
+response_file="$(mktemp)"
+
+http_status=$(curl -k -sS -o "$response_file" -w "%%{http_code}" \
   -X POST \
+  -H "Authorization: Bearer ${var.aap_token}" \
   -H "Content-Type: application/json" \
   -d '{
     "limit": "${local.vm_name}",
@@ -68,7 +77,17 @@ curl -k -s -o /tmp/aap_launch_response.json -w "AAP HTTP status: %%{http_code}\\
       "operating_system": "linux"
     }
   }' \
-  "https://platform.cus-xpgr22.aws.ansiblecloud.redhat.com/api/controller/v2/workflow_job_templates/48/launch/"
+  "https://platform.cus-xpgr22.aws.ansiblecloud.redhat.com/api/controller/v2/workflow_job_templates/48/launch/")
+
+echo "AAP HTTP status: $http_status"
+
+if [ "$http_status" -lt 200 ] || [ "$http_status" -ge 300 ]; then
+  echo "AAP launch failed:"
+  cat "$response_file"
+  exit 1
+fi
+
+rm -f "$response_file"
 EOT
   }
 }
