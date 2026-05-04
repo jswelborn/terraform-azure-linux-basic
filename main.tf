@@ -1,4 +1,3 @@
-/*
 locals {
   resource_group_name = "rg-80020000-ansible"
   location            = "East US"
@@ -49,4 +48,3 @@ resource "azurerm_linux_virtual_machine" "vm" {
     version   = "latest"
   }
 }
-*/
