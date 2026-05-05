@@ -9,3 +9,9 @@ variable "aap_token" {
   type        = string
   sensitive   = true
 }
+
+variable "hetwinadmin_default_password" {
+  description = "Initial local admin password for Windows VM"
+  type        = string
+  sensitive   = true
+}

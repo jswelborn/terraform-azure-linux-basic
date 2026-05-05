@@ -1,12 +1,5 @@
-locals {
-  resource_group_name = "rg-80020000-ansible"
-  location            = "East US"
-  subnet_id           = "/subscriptions/6133c7a0-a417-43b9-acb9-1bdd65114bbe/resourceGroups/ht-hts-eastus-core-rg/providers/Microsoft.Network/virtualNetworks/ht-hts-eastus-vnet1/subnets/ht-hts-eastus-utilityservices-app-prod-subnet-private"
-  vm_name             = "hts001cldans010"
-}
-
 resource "azurerm_network_interface" "nic" {
-  name                = "${local.vm_name}-nic"
+  name                = "${local.linux_vm_name}-nic"
   location            = local.location
   resource_group_name = local.resource_group_name
 
@@ -18,7 +11,7 @@ resource "azurerm_network_interface" "nic" {
 }
 
 resource "azurerm_linux_virtual_machine" "vm" {
-  name                = local.vm_name
+  name                = local.linux_vm_name
   resource_group_name = local.resource_group_name
   location            = local.location
   size                = "Standard_D2s_v5"
