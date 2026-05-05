@@ -23,6 +23,8 @@ resource "azurerm_windows_virtual_machine" "windows_vm" {
     azurerm_network_interface.windows_nic.id
   ]
 
+  patch_mode = "AutomaticByPlatform"
+
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Premium_LRS"
