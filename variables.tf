@@ -15,3 +15,18 @@ variable "hetwinadmin_default_password" {
   type        = string
   sensitive   = true
 }
+
+variable "aws_subnet_id" {
+  description = "AWS subnet ID where the test instance will be deployed"
+  type        = string
+}
+
+variable "aws_key_name" {
+  description = "AWS EC2 key pair name for SSH access"
+  type        = string
+}
+
+variable "aws_security_group_ids" {
+  description = "Security group IDs for the AWS Linux test instance"
+  type        = list(string)
+}

@@ -5,4 +5,17 @@ locals {
 
   linux_vm_name   = "hts001cldans010"
   windows_vm_name = "hts001cldans013"
+
+  aws_region        = "us-east-1"
+  aws_linux_vm_name = "hts001cldans014"
+
+  aws_common_tags = {
+    costcenter   = "80020000"
+    businessunit = "Hearst Technology Services"
+    product      = "Systems-Hearst-Com"
+    application  = "General Compute"
+    environment  = "dev"
+    supportteam  = "hts.sre@hearst.com"
+    Name     = "hts001cldans014"
+  }
 }

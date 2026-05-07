@@ -6,9 +6,18 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~> 4.0"
     }
+
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
   }
 }
 
 provider "azurerm" {
   features {}
+}
+
+provider "aws" {
+  region = local.aws_region
 }
