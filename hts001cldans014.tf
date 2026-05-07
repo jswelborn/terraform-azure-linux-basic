@@ -1,4 +1,3 @@
-/*
 resource "aws_instance" "linux_instance" {
   ami                    = "ami-0d5e8769671b48387"
   instance_type          = "t3.large"
@@ -13,4 +12,3 @@ resource "aws_instance" "linux_instance" {
 
   tags = local.aws_common_tags
 }
-*/
