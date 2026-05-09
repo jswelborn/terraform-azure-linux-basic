@@ -10,7 +10,7 @@ locals {
   aws_assume_role_arn = "arn:aws:iam::027856332022:role/AccessAUTO"
 
   aws_linux_vm_name   = "hts001cldans014"
-  aws_windows_vm_name = "hts001cldans015"
+  aws_windows_vm_name = "hts001cldans016"
 
   aws_linux_tags = {
     costcenter   = "80020000"
