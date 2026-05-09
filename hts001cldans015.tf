@@ -1,3 +1,4 @@
+/*
 resource "aws_instance" "windows_instance" {
   ami                    = "ami-0798c9ebaf695e14e"
   instance_type          = "t3.large"
@@ -12,3 +13,4 @@ resource "aws_instance" "windows_instance" {
 
   tags = local.aws_windows_tags
 }
+*/
