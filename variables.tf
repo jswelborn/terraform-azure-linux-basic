@@ -15,8 +15,3 @@ variable "hetwinadmin_default_password" {
   type        = string
   sensitive   = true
 }
-
-variable "aws_region" {
-  description = "AWS region for EC2 resources"
-  type        = string
-}
