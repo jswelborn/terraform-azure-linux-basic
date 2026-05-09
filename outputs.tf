@@ -13,3 +13,7 @@ output "aws_linux_instance_name" {
 output "aws_linux_instance_private_ip" {
   value = aws_instance.linux_instance.private_ip
 }
+
+output "aws_region" {
+  value = local.aws_region
+}

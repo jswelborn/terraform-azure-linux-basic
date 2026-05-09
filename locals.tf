@@ -6,7 +6,7 @@ locals {
   linux_vm_name   = "hts001cldans010"
   windows_vm_name = "hts001cldans013"
 
-  aws_region          = "us-east-1"
+  aws_region = "us-east-1"
   aws_assume_role_arn = "arn:aws:iam::027856332022:role/AccessAUTO"
 
   aws_linux_vm_name   = "hts001cldans014"

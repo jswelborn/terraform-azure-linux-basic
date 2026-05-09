@@ -20,4 +20,8 @@ provider "azurerm" {
 
 provider "aws" {
   region = local.aws_region
+
+  assume_role {
+    role_arn = local.aws_assume_role_arn
+  }
 }
