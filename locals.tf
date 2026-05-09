@@ -9,9 +9,10 @@ locals {
   aws_region          = "us-east-1"
   aws_assume_role_arn = "arn:aws:iam::027856332022:role/AccessAUTO"
 
-  aws_linux_vm_name = "hts001cldans014"
+  aws_linux_vm_name   = "hts001cldans014"
+  aws_windows_vm_name = "hts001cldans015"
 
-  aws_common_tags = {
+  aws_linux_tags = {
     costcenter   = "80020000"
     businessunit = "Hearst Technology Services"
     product      = "Systems-Hearst-Com"
@@ -19,6 +20,17 @@ locals {
     environment  = "dev"
     supportteam  = "hts.sre@hearst.com"
 
-    Name = "hts001cldans014"
+    Name = local.aws_linux_vm_name
+  }
+
+  aws_windows_tags = {
+    costcenter   = "80020000"
+    businessunit = "Hearst Technology Services"
+    product      = "Systems-Hearst-Com"
+    application  = "General Compute"
+    environment  = "dev"
+    supportteam  = "hts.sre@hearst.com"
+
+    Name = local.aws_windows_vm_name
   }
 }
