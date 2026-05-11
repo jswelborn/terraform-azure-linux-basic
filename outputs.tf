@@ -1,3 +1,4 @@
+/*
 output "linux_vm_name" {
   value = azurerm_linux_virtual_machine.vm.name
 }
@@ -17,3 +18,4 @@ output "aws_linux_instance_private_ip" {
 output "aws_region" {
   value = local.aws_region
 }
+*/

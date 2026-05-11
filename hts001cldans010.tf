@@ -1,3 +1,4 @@
+/*
 resource "azurerm_network_interface" "nic" {
   name                = "${local.linux_vm_name}-nic"
   location            = local.location
@@ -41,3 +42,4 @@ resource "azurerm_linux_virtual_machine" "vm" {
     version   = "latest"
   }
 }
+*/

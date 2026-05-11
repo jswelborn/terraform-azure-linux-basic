@@ -1,3 +1,4 @@
+/*
 resource "azurerm_network_interface" "windows_nic" {
   name                = "${local.windows_vm_name}-nic"
   location            = local.location
@@ -38,3 +39,4 @@ resource "azurerm_windows_virtual_machine" "windows_vm" {
     version   = "latest"
   }
 }
+*/
